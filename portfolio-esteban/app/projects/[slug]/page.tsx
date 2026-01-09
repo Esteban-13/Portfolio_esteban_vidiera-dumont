@@ -59,15 +59,6 @@ export default async function ProjectPage({ params }: Props) {
           {project.title}
         </h1>
 
-        {/* META (SÉCURISÉE) */}
-        {(project.period || project.school) && (
-          <p className="text-gray-600 mb-8">
-            {project.period}
-            {project.period && project.school && " · "}
-            {project.school}
-          </p>
-        )}
-
         {/* DESCRIPTION */}
         <p className="text-lg text-gray-700 leading-relaxed mb-16">
           {project.description}
