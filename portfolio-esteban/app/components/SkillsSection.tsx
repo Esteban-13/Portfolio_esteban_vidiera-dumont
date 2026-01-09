@@ -1,6 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { IconType } from "react-icons";
+import type { LucideIcon } from "lucide-react";
+
 import {
   SiPython,
   SiHtml5,
@@ -13,11 +16,27 @@ import {
   SiAdobeillustrator,
   SiNotion,
 } from "react-icons/si";
+
 import {
   Briefcase,
   Users,
   Award,
 } from "lucide-react";
+
+/* ================= TYPES ================= */
+
+type Skill = {
+  label: string;
+  icon?: IconType;
+};
+
+type SkillSection = {
+  title: string;
+  icon: LucideIcon;
+  skills: Skill[];
+};
+
+/* ================= ANIMATIONS ================= */
 
 const container = {
   hidden: {},
@@ -38,7 +57,9 @@ const badge = {
   show: { opacity: 1, scale: 1 },
 };
 
-const skillSections = [
+/* ================= DATA ================= */
+
+const skillSections: SkillSection[] = [
   {
     title: "Gestion & Organisation",
     icon: Briefcase,
@@ -55,8 +76,7 @@ const skillSections = [
     icon: Users,
     skills: [
       { label: "Communication écrite et orale" },
-      { label: "Présentations",
-      },
+      { label: "Présentations" },
       { label: "Adaptabilité" },
       { label: "Autonomie" },
       { label: "Travail en équipe" },
@@ -99,12 +119,11 @@ const skillSections = [
   },
 ];
 
+/* ================= COMPONENT ================= */
+
 export default function SkillsSection() {
   return (
-    <section
-      id="skills"
-      className="relative py-40"
-    >
+    <section id="skills" className="relative py-40">
       {/* FOND FULL WIDTH */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-gray-100 via-white to-gray-50" />
 
@@ -140,7 +159,7 @@ export default function SkillsSection() {
                   transition-all
                 "
               >
-                {/* Header carte */}
+                {/* HEADER CARTE */}
                 <div className="flex items-center gap-4 mb-8">
                   <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-black text-white">
                     <SectionIcon className="w-6 h-6" />
@@ -151,7 +170,7 @@ export default function SkillsSection() {
                   </h3>
                 </div>
 
-                {/* Badges */}
+                {/* BADGES */}
                 <div className="flex flex-wrap gap-3">
                   {section.skills.map((skill) => {
                     const Icon = skill.icon;
