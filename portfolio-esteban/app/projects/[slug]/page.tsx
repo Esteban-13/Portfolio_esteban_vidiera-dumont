@@ -59,6 +59,7 @@ export default async function ProjectPage({ params }: Props) {
           {project.title}
         </h1>
 
+
         {/* DESCRIPTION */}
         <p className="text-lg text-gray-700 leading-relaxed mb-16">
           {project.description}
