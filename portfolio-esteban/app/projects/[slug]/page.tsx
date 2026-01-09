@@ -41,9 +41,7 @@ const skillIcons: Record<string, any> = {
 export default async function ProjectPage({ params }: Props) {
   const { slug } = await params;
 
-  const project = projects.find(
-    (p) => p.slug === slug
-  );
+  const project = projects.find((p) => p.slug === slug);
 
   if (!project) {
     notFound();
@@ -61,10 +59,14 @@ export default async function ProjectPage({ params }: Props) {
           {project.title}
         </h1>
 
-        {/* META */}
-        <p className="text-gray-600 mb-8">
-          {project.period} · {project.school}
-        </p>
+        {/* META (SÉCURISÉE) */}
+        {(project.period || project.school) && (
+          <p className="text-gray-600 mb-8">
+            {project.period}
+            {project.period && project.school && " · "}
+            {project.school}
+          </p>
+        )}
 
         {/* DESCRIPTION */}
         <p className="text-lg text-gray-700 leading-relaxed mb-16">
@@ -109,7 +111,7 @@ export default async function ProjectPage({ params }: Props) {
           </p>
         </section>
 
-        {/* PDF */}
+        {/* PDF EMBED */}
         {project.presentationPdf && (
           <section className="mt-16">
             <h2 className="text-2xl font-semibold mb-6">
