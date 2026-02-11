@@ -23,6 +23,8 @@ const skillIcons: Record<string, any> = {
   Blockchain: SiEthereum,
 };
 
+import Image from "next/image";
+
 import { motion } from "framer-motion";
 import {
   ArrowDown,
@@ -47,60 +49,88 @@ export default function Home() {
         <div className="absolute inset-0 -z-10 bg-gradient-to-br from-gray-100 via-white to-gray-200" />
 
         <div className="max-w-6xl mx-auto px-6">
-          <motion.h1
-            variants={fadeUp}
-            initial="hidden"
-            animate="show"
-            transition={{ duration: 0.6 }}
-            className="text-5xl md:text-6xl font-bold mb-6"
-          >
-            Esteban Videira-Dumont
-          </motion.h1>
+  <div className="grid md:grid-cols-2 gap-12 items-center">
 
-          <motion.p
-            variants={fadeUp}
-            initial="hidden"
-            animate="show"
-            transition={{ delay: 0.1 }}
-            className="text-2xl text-gray-600 mb-10"
-          >
-            Gestion de projet · Marketing digital · Produits numériques
-          </motion.p>
+    {/* ===== TEXTE À GAUCHE ===== */}
+    <div>
+      <motion.h1
+        variants={fadeUp}
+        initial="hidden"
+        animate="show"
+        transition={{ duration: 0.6 }}
+        className="text-5xl md:text-6xl font-bold mb-6"
+      >
+        Esteban Videira-Dumont
+      </motion.h1>
 
-          <motion.p
-            variants={fadeUp}
-            initial="hidden"
-            animate="show"
-            transition={{ delay: 0.2 }}
-            className="max-w-2xl text-lg text-gray-700"
-          >
-            Étudiant à Epitech Digital School, je conçois et pilote des projets
-            digitaux orientés stratégie, performance et expérience utilisateur.
-          </motion.p>
+      <motion.p
+        variants={fadeUp}
+        initial="hidden"
+        animate="show"
+        transition={{ delay: 0.1 }}
+        className="text-2xl text-gray-600 mb-10"
+      >
+        Gestion de projet · Marketing digital · Produits numériques
+      </motion.p>
 
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            animate="show"
-            transition={{ delay: 0.3 }}
-            className="flex gap-4 mt-12"
-          >
-            <a
-              href="#projects"
-              className="flex items-center gap-2 px-7 py-3 bg-black text-white rounded-full"
-            >
-              Voir mes projets <ArrowDown className="w-4 h-4" />
-            </a>
+      <motion.p
+        variants={fadeUp}
+        initial="hidden"
+        animate="show"
+        transition={{ delay: 0.2 }}
+        className="max-w-xl text-lg text-gray-700"
+      >
+        Étudiant à Epitech Digital School, je conçois et pilote des projets
+        digitaux orientés stratégie, performance et expérience utilisateur.
+      </motion.p>
 
-            <a
-              href="/cv/CV_Esteban_VIDEIRA_DUMONT_2026.pdf"
-              download
-              className="flex items-center gap-2 px-7 py-3 border border-black rounded-full"
-            >
-              Télécharger le CV <FileText className="w-4 h-4" />
-            </a>
-          </motion.div>
-        </div>
+      {/* BOUTONS À GAUCHE */}
+      <motion.div
+        variants={fadeUp}
+        initial="hidden"
+        animate="show"
+        transition={{ delay: 0.3 }}
+        className="flex gap-4 mt-12"
+      >
+        <a
+          href="#projects"
+          className="flex items-center gap-2 px-7 py-3 bg-black text-white rounded-full"
+        >
+          Voir mes projets <ArrowDown className="w-4 h-4" />
+        </a>
+
+        <a
+          href="/cv/CV_Esteban_VIDEIRA_DUMONT_2026.pdf"
+          download
+          className="flex items-center gap-2 px-7 py-3 border border-black rounded-full"
+        >
+          Télécharger le CV <FileText className="w-4 h-4" />
+        </a>
+      </motion.div>
+    </div>
+
+    {/* ===== PHOTO À DROITE ===== */}
+    <motion.div
+      variants={fadeUp}
+      initial="hidden"
+      animate="show"
+      transition={{ delay: 0.4 }}
+      className="flex justify-center md:justify-end"
+    >
+      <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-3xl overflow-hidden shadow-2xl border">
+        <Image
+          src="/profile.jpg"
+          alt="Esteban Videira-Dumont"
+          fill
+          className="object-cover"
+          priority
+        />
+      </div>
+    </motion.div>
+
+  </div>
+</div>
+
       </section>
 
       {/* ================= PROJETS ================= */}
